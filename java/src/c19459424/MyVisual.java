@@ -6,7 +6,6 @@ public class MyVisual extends Visual {
     waveform wf;
     rectScale rs;
     rectSize rects;
-    trianglevisual tv;
 
     public void settings()
     {
@@ -26,7 +25,6 @@ public class MyVisual extends Visual {
         wf = new waveform(this);
         rs = new rectScale(this);
         rects = new rectSize(this);
-        tv = new trianglevisual(this);
     }
 
     public void keyPressed()
@@ -58,7 +56,5 @@ public class MyVisual extends Visual {
         wf.render();
         //rs.render();
         //rects.render();
-        //tv.render();
-       
     }
 }

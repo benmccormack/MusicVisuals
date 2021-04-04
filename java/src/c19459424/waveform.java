@@ -6,8 +6,8 @@ public class waveform
 {
     MyVisual mv;
     float cy = 0;
-    float[] lerpedBuffer;
 
+   
     public waveform(MyVisual mv)
     {
         this.mv = mv;
