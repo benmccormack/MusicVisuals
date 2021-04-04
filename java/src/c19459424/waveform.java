@@ -2,7 +2,6 @@ package c19459424;
 
 import processing.core.*;
 
-// This is an example of a visual that renders the waveform
 public class waveform
 {
     MyVisual mv;
