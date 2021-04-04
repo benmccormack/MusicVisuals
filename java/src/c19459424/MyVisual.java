@@ -4,10 +4,14 @@ import ie.tudublin.*;
 
 public class MyVisual extends Visual {
     waveform wf;
+    rectScale rs;
+    rectSize rects;
+    trianglevisual tv;
 
     public void settings()
     {
-        size(1024,1024, P3D);
+        size(1024,720, P3D);
+        //fullScreen(P3D, SPAN);
     }
 
     public void setup()
@@ -20,6 +24,9 @@ public class MyVisual extends Visual {
         // Call this instead to read audio from the microphone
         //startListening(); 
         wf = new waveform(this);
+        rs = new rectScale(this);
+        rects = new rectSize(this);
+        tv = new trianglevisual(this);
     }
 
     public void keyPressed()
@@ -49,5 +56,9 @@ public class MyVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();     
         wf.render();
+        //rs.render();
+        //rects.render();
+        //tv.render();
+       
     }
 }
