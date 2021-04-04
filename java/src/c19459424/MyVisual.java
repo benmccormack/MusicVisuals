@@ -4,8 +4,8 @@ import ie.tudublin.*;
 
 public class MyVisual extends Visual {
     waveform wf;
-    rectScale rs;
     rectSize rects;
+    freqBars fb;
 
     public void settings()
     {
@@ -23,8 +23,8 @@ public class MyVisual extends Visual {
         // Call this instead to read audio from the microphone
         //startListening(); 
         wf = new waveform(this);
-        rs = new rectScale(this);
         rects = new rectSize(this);
+        fb = new freqBars(this);
     }
 
     public void keyPressed()
@@ -52,9 +52,10 @@ public class MyVisual extends Visual {
         calculateFrequencyBands(); 
 
         // Call this is you want to get the average amplitude
-        calculateAverageAmplitude();     
-        wf.render();
-        //rs.render();
+        calculateAverageAmplitude();   
+        
+        //wf.render();
+        fb.render();
         //rects.render();
     }
 }

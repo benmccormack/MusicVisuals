@@ -6,6 +6,7 @@ public class MyVisual extends Visual
 {    
     WaveForm wf;
     AudioBandsVisual abv;
+    CubeVisual cv;
 
     public void settings()
     {

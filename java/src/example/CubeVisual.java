@@ -6,6 +6,9 @@ public class CubeVisual extends Visual
 {
     boolean twocubes = false;
 
+    public CubeVisual(MyVisual myVisual) {
+    }
+
     public void settings()
     {
         size(800, 800, P3D);
@@ -24,6 +27,7 @@ public class CubeVisual extends Visual
         if (key == '1')
         {
             twocubes = ! twocubes;
+            CubeVisual.draw();
 
         }
     }
@@ -44,7 +48,7 @@ public class CubeVisual extends Visual
 
     float smoothedBoxSize = 0;
 
-    public void draw()
+    public static void draw()
     {
         calculateAverageAmplitude();
         background(0);
