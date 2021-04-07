@@ -6,6 +6,7 @@ public class MyVisual extends Visual {
     waveform wf;
     rectSize rects;
     freqBars fb;
+    cubeVisual cv;
 
     public void settings()
     {
@@ -18,13 +19,14 @@ public class MyVisual extends Visual {
         startMinim();
                 
         // Call loadAudio to load an audio file to process 
-        loadAudio("heroplanet.mp3");   
+        loadAudio("HDIGH.mp3");   
         
         // Call this instead to read audio from the microphone
         //startListening(); 
         wf = new waveform(this);
         rects = new rectSize(this);
         fb = new freqBars(this);
+        cv = new cubeVisual(this);
     }
 
     public void keyPressed()
@@ -38,6 +40,7 @@ public class MyVisual extends Visual {
 
     public void draw()
     {
+
         background(0);
         try
         {
@@ -55,7 +58,8 @@ public class MyVisual extends Visual {
         calculateAverageAmplitude();   
         
         //wf.render();
-        fb.render();
+        //fb.render();
         //rects.render();
+        cv.render();
     }
 }
