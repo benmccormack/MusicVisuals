@@ -31,7 +31,7 @@ public class MyVisual extends Visual {
 
     public void keyPressed()
     {
-        if (key == ' ')
+        if (keyCode == ' ')
         {
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
@@ -60,6 +60,26 @@ public class MyVisual extends Visual {
         //wf.render();
         //fb.render();
         //rects.render();
-        cv.render();
+        //cv.render();
+        if(key == '1')
+        {
+            wf.render();
+        }
+
+        if(key == '2')
+        {
+            cv.render();
+        }
+
+        if(key == '3')
+        {
+            fb.render();
+        }
+
+        if(key == 5)
+        {
+            rects.render();
+        }
+        //fb.render();
     }
 }
