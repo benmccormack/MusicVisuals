@@ -23,8 +23,7 @@ public class waveform
         for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
         {
             mv.stroke(255);
-            //mv.line(i, cy - mv.getAudioBuffer().get(i) * cy, i, cy + mv.getAudioBuffer().get(i) * cy );
-            mv.line(i, cy - mv.getAudioBuffer().get(i) * cy, i, cy + mv.getAudioBuffer().get(i) * cy );
+            mv.line(i, cy - mv.getAudioBuffer().get(i) * cy, i, cy + mv.getAudioBuffer().get(i) * cy);
         } 
     }
 }

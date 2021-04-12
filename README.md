@@ -1,8 +1,8 @@
 # Music Visualiser Project
 
-Name:
+Name: Ben McCormack
 
-Student Number: 
+Student Number: C19459424
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
@@ -18,6 +18,59 @@ Student Number:
 # How it works
 
 # What I am most proud of in the assignment
+I am most proud of the rotating illusion I created with the rectangles in *rectSize.java*. I discovered something similar to this online and was inspired to do my own take on something similar. I started by noting features that I liked about the visual and then also make note of my own features that I would like to implement. The features I wanted to implemement included making the rectangles pulse with the music and change colour with the music. Both of these features were accomplished by using the map function which included getSmoothedAmplitude() method as shown below.
+
+```Java
+mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
+mv.stroke(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
+```
+
+Scaling the visual with the use of the mouse is another thing that I added to the illusion. Although I liked how it looked initially I began to think of ways to make it more interactive. As the mouse is dragged across the screen, the visual is enlarged which gives the effect that you are now inside the flower like illusion when looking at the screen. The scaling of the visual was done as follows.
+```Java
+float scaleVar = PApplet.map(mv.mouseX, 0 ,width, (float)0.5,10);
+mv.scale(scaleVar);
+```
+I had to learn a few new things myself throughout this process such as:
+ - How to draw a shape from the middle as opposed to the corner as it is drawn by default.
+ - How scaling works in processing
+ - How to give the effect that shapes were drawn on top of each other when by default you can see the previously drawn shape through the new one.
+
+I spent quite a few hours trying to figure out how to stop the stroke of a previously drawn shape from showing through the new shape and eventually found the following function in the PApplet class which resolved the issue:
+```Java
+mv.hint(PConstants.DISABLE_OPTIMIZED_STROKE);
+```
+
+The visual then went from looking like this:
+![An image](images/before.png)
+
+To this:
+![An image](images/after.png)
+
+I am really proud of this feature and how the end result turned out. I truly believe that this along with the other elements throughout my program meet the brief requirement of being "Something beautiful to enjoy while listening to music."
+
+Full render method for feature:
+```Java
+public void render(){
+        mv.colorMode(PApplet.HSB);
+		mv.strokeWeight(20);
+        mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
+        mv.stroke(0,15,30);
+        mv.background(0,15,30);
+        mv.translate(width/2, height/2);
+		
+        float scaleVar = PApplet.map(mv.mouseX, 0 ,width, (float)0.5,10);
+        mv.scale(scaleVar);
+
+        for(int i = 0; i < 100; i++)
+        {
+            mv.scale((float)0.95);
+            mv.rotate(PApplet.radians(angle));
+            mv.rect(0,0,500 + mv.getSmoothedAmplitude() * 200 ,500 + mv.getSmoothedAmplitude() * 200);
+        }
+        angle += 0.05;
+    }
+```
+
 
 # Markdown Tutorial
 

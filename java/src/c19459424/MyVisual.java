@@ -7,6 +7,8 @@ public class MyVisual extends Visual {
     rectSize rects;
     freqBars fb;
     cubeVisual cv;
+    pyramidVisual pv;
+    radialWaveform rw;
 
     public void settings()
     {
@@ -27,6 +29,8 @@ public class MyVisual extends Visual {
         rects = new rectSize(this);
         fb = new freqBars(this);
         cv = new cubeVisual(this);
+        pv = new pyramidVisual(this);
+        rw = new radialWaveform(this);
     }
 
     public void keyPressed()
@@ -73,13 +77,25 @@ public class MyVisual extends Visual {
 
         if(key == '3')
         {
+            pv.render();
+        }
+
+        if(key == '4')
+        {
+            rw.render();
+        }
+
+        if(key == '5')
+        {
             fb.render();
         }
 
-        if(key == 5)
+        if(key == '6')
         {
-            rects.render();
+            rects.render(); 
         }
         //fb.render();
+        //pv.render();
+    
     }
 }
