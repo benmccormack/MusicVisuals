@@ -15,23 +15,26 @@ public class radialWaveform {
         width = this.mv.width;
         height = this.mv.height;
         lerpedBuffer = new float[mv.width];
+        mv.hint(PConstants.DISABLE_OPTIMIZED_STROKE);
     }
 
     public void render(){
         mv.colorMode(PApplet.HSB);
-
+        mv.background(0);
         mv.translate(width/2, height/2);
-        mv.fill(255);
+        mv.noStroke();
+        mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
+        mv.ellipse(0, 0, 250 + mv.getSmoothedAmplitude() * 50, 250 + mv.getSmoothedAmplitude() * 50);
+        mv.fill(0);
+        mv.ellipse(0, 0, 200, 200);
         mv.stroke(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
         mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
-        mv.ellipse(0,0,height/ 3 + mv.getSmoothedAmplitude() * 100,height/ 3 + mv.getSmoothedAmplitude() * 100);
         mv.strokeWeight(3);
         for (int i = 0; i < mv.getAudioBuffer().size(); i++) {
-            mv.rotate(PApplet.radians(angle)); 
+            mv.rotate(PApplet.degrees(angle)); 
             lerpedBuffer[i] = PApplet.lerp(lerpedBuffer[i], mv.getAudioBuffer().get(i), 0.1f);
-            mv.line(height/6, 0,mv.getAudioBuffer().get(i)* 200, 0);
+            mv.line(0, 200 + (mv.getSmoothedAmplitude() * 50), 0, (200 + mv.getSmoothedAmplitude() * 50) + (PApplet.abs(lerpedBuffer[i])* 100));
+            angle += mv.getAudioBuffer().size() / 360.0f;
         }
-        angle += 0.001f;
-
     }
 }

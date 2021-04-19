@@ -19,12 +19,14 @@ public class cubeVisual{
     public void render()
     {
         mv.colorMode(PApplet.HSB);
-
-        // for loop for waveform
-        for(int i = 0; i<mv.getAudioBuffer().size(); i++)
+        //frequency bars
+        float gap = mv.width / (float) mv.getBands().length;
+        mv.noStroke();
+        for(int i = 0 ; i < mv.getBands().length ; i ++)
         {
-            mv.translate(0, 0);
-            mv.line(i, width, i, width + width / 2 * mv.getAudioBuffer().get(i));
+            mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255); //fill colour change using amplitude
+            mv.rect(mv.width, i * gap,-mv.getSmoothedBands()[i] * 0.2f, gap - (float)mv.width/8); 
+            mv.rect(0, i * gap ,-mv.getSmoothedBands()[i] * 0.2f, gap - (float)mv.width/8); 
         }
 
         mv.pushMatrix();
