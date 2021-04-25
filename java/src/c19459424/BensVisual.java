@@ -2,7 +2,7 @@ package c19459424;
 
 import ie.tudublin.*;
 
-public class MyVisual extends Visual {
+public class BensVisual extends Visual {
     waveform wf;
     rectSize rects;
     freqBars fb;
@@ -23,8 +23,6 @@ public class MyVisual extends Visual {
         // Call loadAudio to load an audio file to process 
         loadAudio("HDIGH.mp3");   
         
-        // Call this instead to read audio from the microphone
-        //startListening(); 
         wf = new waveform(this);
         rects = new rectSize(this);
         fb = new freqBars(this);
@@ -61,10 +59,6 @@ public class MyVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();   
         
-        //wf.render();
-        //fb.render();
-        //rects.render();
-        //cv.render();
         if(key == '1')
         {
             wf.render();
@@ -94,8 +88,6 @@ public class MyVisual extends Visual {
         {
             rects.render(); 
         }
-        //fb.render();
-        //pv.render();
     
     }
 }

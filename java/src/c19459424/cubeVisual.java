@@ -1,47 +1,47 @@
 package c19459424;
 
-import ie.tudublin.MyVisual;
 import processing.core.*;
 
 public class cubeVisual{
-    MyVisual mv;
+    BensVisual bv;
     float width;
     float height;
     float angle = 0;
 
-    public cubeVisual(MyVisual mv)
+    public cubeVisual(BensVisual bv)
     {
-        this.mv = mv; 
-        width = this.mv.width;
-        height = this.mv.height;
+        this.bv = bv; 
+        width = this.bv.width;
+        height = this.bv.height;
     }
 
     public void render()
     {
-        mv.colorMode(PApplet.HSB);
+        bv.colorMode(PApplet.HSB);
         //frequency bars
-        float gap = mv.width / (float) mv.getBands().length;
-        mv.noStroke();
-        for(int i = 0 ; i < mv.getBands().length ; i ++)
+        float gap = bv.width / (float) bv.getBands().length;
+        bv.noStroke();
+        for(int i = 0 ; i < bv.getBands().length ; i ++)
         {
-            mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255); //fill colour change using amplitude
-            mv.rect(mv.width, i * gap,-mv.getSmoothedBands()[i] * 0.2f, gap - (float)mv.width/8); 
-            mv.rect(0, i * gap ,-mv.getSmoothedBands()[i] * 0.2f, gap - (float)mv.width/8); 
+            bv.fill(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255); //fill colour change using amplitude
+            bv.rect(bv.width, i * gap,-bv.getSmoothedBands()[i] * 0.2f, gap - (float)bv.width/8); 
+            bv.rect(0, i * gap ,-bv.getSmoothedBands()[i] * 0.2f, gap - (float)bv.width/8); 
         }
 
-        mv.pushMatrix();
-        mv.translate(width/2, height/2, 0); //translating whatever is drawn to center of screen
-        mv.rotateY(angle); 
-        mv.rotateX(angle);
-        mv.lights(); //adding lights
-        mv.strokeWeight(2);
-        mv.noFill();
-        mv.stroke(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255); //stroke color change using amplitude
+        //drawing cube + sphere inside cube
+        bv.pushMatrix();
+        bv.translate(width/2, height/2, 0); //translating whatever is drawn to center of screen
+        bv.rotateY(angle); 
+        bv.rotateX(angle);
+        bv.lights(); //adding lights
+        bv.strokeWeight(2);
+        bv.noFill();
+        bv.stroke(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255); //stroke color change using amplitude
         angle += 0.01f; //increasing angle value, increases rotation
-        float s = 100 * mv.getSmoothedAmplitude() * 10;
-        mv.box(s);
-        mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255); //fill colour change using amplitude
-        mv.sphere(s / 2); //radius of sphere smaller than box so it can fit inside
-        mv.popMatrix();
+        float s = 100 * bv.getSmoothedAmplitude() * 10;
+        bv.box(s);
+        bv.fill(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255); //fill colour change using amplitude
+        bv.sphere(s / 2); //radius of sphere smaller than box so it can fit inside
+        bv.popMatrix();
     }
 } 

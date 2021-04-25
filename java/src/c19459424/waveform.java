@@ -4,26 +4,29 @@ import processing.core.*;
 
 public class waveform
 {
-    MyVisual mv;
+    BensVisual bv;
     float cy = 0;
+    float[] lerpedBuffer;
 
    
-    public waveform(MyVisual mv)
+    public waveform(BensVisual bv)
     {
-        this.mv = mv;
-        cy = this.mv.height / 2;
+        this.bv = bv;
+        cy = this.bv.height / 2f;
+        lerpedBuffer = new float[bv.width];
     }
 
 
     public void render()
     {
-        mv.colorMode(PApplet.HSB);
-        mv.strokeWeight(1);
+        bv.colorMode(PApplet.HSB);
+        bv.strokeWeight(1);
+        bv.stroke(255);
 
-        for(int i = 0 ; i < mv.getAudioBuffer().size() ; i ++)
+        for(int i = 0 ; i < bv.getAudioBuffer().size() ; i ++)
         {
-            mv.stroke(255);
-            mv.line(i, cy - mv.getAudioBuffer().get(i) * cy, i, cy + mv.getAudioBuffer().get(i) * cy);
+            lerpedBuffer[i] = PApplet.lerp(lerpedBuffer[i], bv.getAudioBuffer().get(i), 0.1f);
+            bv.line(i, cy - lerpedBuffer[i] * cy, i, cy + lerpedBuffer[i] * cy);
         } 
     }
 }

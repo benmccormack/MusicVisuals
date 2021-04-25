@@ -3,24 +3,24 @@ package c19459424;
 import processing.core.*;
 
 public class freqBars {
-    MyVisual mv;
+    BensVisual bv;
 
-    public freqBars(MyVisual mv)
+    public freqBars(BensVisual bv)
     {
-        this.mv = mv; 
+        this.bv = bv; 
     }
 
     public void render()
     {
-        mv.colorMode(PApplet.HSB);
-        float gap = mv.height / (float) mv.getBands().length;
-        mv.noStroke();
-        for(int i = 0 ; i < mv.getBands().length ; i ++)
+        bv.colorMode(PApplet.HSB);
+        float gap = bv.height / (float) bv.getBands().length;
+        bv.noStroke();
+        for(int i = 0 ; i < bv.getBands().length ; i ++)
         {
-            mv.fill(PApplet.map(mv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255); //fill colour change using amplitude
-            mv.rect(0, i * gap ,-mv.getSmoothedBands()[i] * 0.2f, gap - (float)mv.width/8); 
-            mv.rect(mv.width, i * gap,-mv.getSmoothedBands()[i] * 0.2f, gap - (float)mv.width/8); 
-            mv.ellipse(mv.width/2, mv.height/2, mv.getSmoothedAmplitude() * mv.width, mv.getSmoothedAmplitude() * mv.width);
+            bv.fill(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255); //fill colour change using amplitude
+            bv.rect(0, i * gap ,-bv.getSmoothedBands()[i] * 0.2f, gap - (float)bv.width/8); 
+            bv.rect(bv.width, i * gap,-bv.getSmoothedBands()[i] * 0.2f, gap - (float)bv.width/8); 
+            bv.ellipse(bv.width/2, bv.height/2, bv.getSmoothedAmplitude() * bv.width, bv.getSmoothedAmplitude() * bv.width);
         }
     }
 }
