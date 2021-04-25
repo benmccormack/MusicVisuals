@@ -9,6 +9,9 @@ public class BensVisual extends Visual {
     cubeVisual cv;
     pyramidVisual pv;
     radialWaveform rw;
+    menu menu;
+
+    int which = 0;
 
     public void settings()
     {
@@ -29,14 +32,29 @@ public class BensVisual extends Visual {
         cv = new cubeVisual(this);
         pv = new pyramidVisual(this);
         rw = new radialWaveform(this);
+        menu = new menu(this);
     }
 
     public void keyPressed()
     {
+        /*
         if (keyCode == ' ')
         {
             getAudioPlayer().cue(0);
             getAudioPlayer().play();
+        }
+        */
+
+        if (keyCode >= '0' && keyCode <= '6') {
+            which = keyCode - '0';
+        }
+        if (keyCode == ' ') {
+            if (getAudioPlayer().isPlaying()) {
+                getAudioPlayer().pause();
+            } else {
+                getAudioPlayer().rewind();
+                getAudioPlayer().play();
+            }
         }
     }
 
@@ -59,6 +77,36 @@ public class BensVisual extends Visual {
         // Call this is you want to get the average amplitude
         calculateAverageAmplitude();   
         
+        switch(which)
+        {
+            case 0:
+                menu.render();
+                break;
+            case 1:
+                wf.render();
+                break;
+
+            case 2:
+                cv.render();
+                break;
+
+            case 3:
+                pv.render();
+                break;
+            
+            case 4:
+                rw.render();
+                break;
+
+            case 5:
+                fb.render();
+                break;
+
+            case 6:
+                rects.render();
+                break;
+        }
+        /*
         if(key == '1')
         {
             wf.render();
@@ -88,6 +136,6 @@ public class BensVisual extends Visual {
         {
             rects.render(); 
         }
-    
+        */
     }
 }
