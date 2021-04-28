@@ -7,9 +7,9 @@ Student Number: C19459424
 # Description of the assignment
 
 # Instructions
-    - Music is started by pressing the space key
-    - Visuals can be controlled using the numbers  1 to 6 on the keyboard.
-    - The rotating scaled rectangles (Visual 6) can be scaled by dragging the mouse across the screen.
+- Music is started by pressing the space key
+- Visuals can be controlled using the numbers  1 to 6 on the keyboard.
+- The rotating scaled rectangles (Visual 6) can be scaled by dragging the mouse across the screen.
 
 # How it works
 
