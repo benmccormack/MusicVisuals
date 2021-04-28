@@ -5,6 +5,7 @@ Name: Ben McCormack
 Student Number: C19459424
 
 # Description of the assignment
+"Something beautiful to enjoy while listening to music." was the brief given for this assignment. I wanted to create an interactive experience that the user could get lost in and enjoy whilst listening to music. Many of these visuals are inspired by the early works of ODEZA, two DJs from America who used many geometric visuals in their early music visuals. The song used in this assignment is created by ODEZA and is called "How did I get here". The visuals react to the music by changing colour and size according to the amplitude and frequenct of the audio file. Any other audio file can be simply substituted by cloning this repo, adding the audio file to the data folder and changing the name of the file in the loadAudio() function located in the BensVisual file.
 
 # Instructions
 - Music is started by pressing the space key
