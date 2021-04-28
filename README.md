@@ -63,8 +63,16 @@ public void render(){
         angle += 0.05;
     }
 ```
-#Images of Other Visuals
+# Images of Other Visuals
+![An image](images/cubeVisual.png)
 
+![An image](images/waveform.png)
+
+![An image](images/pyramidVisual.png)
+
+![An image](images/radialWaveform.png)
+
+![An image](images/freqbars.png)
 
 # Markdown Tutorial
 
