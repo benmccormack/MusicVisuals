@@ -13,8 +13,47 @@ Student Number: C19459424
 - The rotating scaled rectangles (Visual 6) can be scaled by dragging the mouse across the screen.
 
 # How it works
+Visual is a PApplet that contains all the signal processing functions and their relevant getters and setters. Since BensVisual extends Visual it also has access to these features.
+The visuals themselves are stored in seperate classes and declared within BensVisual. This can be seen in the code below.
+```Java
+public class BensVisual extends Visual {
+    waveform wf;
+    rectSize rects;
+    freqBars fb;
+    cubeVisual cv;
+    pyramidVisual pv;
+    radialWaveform rw;
+    linesCircle lc;
+    menu menu;
 
-
+    ...
+}
+```
+Each class contains a constructor which is used to initialize the objects. BensVisual is a parameter in each constructor, this allows us to use variables from BensVisual within the classes.
+```Java
+public freqBars(BensVisual bv)
+{
+    this.bv = bv; 
+}
+```
+The width of BensVisual can now be used within the class with the following code:
+```Java
+bv.width
+```
+The classes are instanciated in the setup method as follows:
+```Java
+ public void setup()
+    {
+        wf = new waveform(this);
+        rects = new rectSize(this);
+        fb = new freqBars(this);
+        cv = new cubeVisual(this);
+        pv = new pyramidVisual(this);
+        rw = new radialWaveform(this);
+        lc = new linesCircle(this);
+        menu = new menu(this);
+    }
+```
 
 Key presses are read and stored in the which variable. The switch statement will then execute the case relevant to the key press. The code for the switch statement is attached below.
 ```Java
