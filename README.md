@@ -54,8 +54,7 @@ The classes are instanciated in the setup method as follows:
         menu = new menu(this);
     }
 ```
-
-Key presses are read and stored in the which variable. The switch statement will then execute the case relevant to the key press. The code for the switch statement is attached below.
+The render methods for each class are called within the draw method located in BensVisual. The draw method is called 60 times per second. This is how the visuals are drawn to the screen. There is also a switch statement within the draw method which changes what visual is played based on the key pressed. Key presses are read and stored in the which variable. The switch statement will then execute the case relevant to the key press. The code for the switch statement is attached below.
 ```Java
 switch(which)
         {
@@ -88,7 +87,12 @@ switch(which)
                 break;
         }
 ```
-
+Keys from 0 - 6 are the only keys that will have an action if pressed, their keycode is ignored if they are not within this range. The if statement responsible for this logic is attached below.
+```Java
+if (keyCode >= '0' && keyCode <= '6') {
+    which = keyCode - '0';
+}
+```
 
 # What I am most proud of in the assignment
 I am most proud of the rotating illusion I created with the rectangles in *rectSize.java*. I discovered something similar to this online and was inspired to do my own take on something similar. I started by noting features that I liked about the visual and then also make note of my own features that I would like to implement. The features I wanted to implemement included making the rectangles pulse with the music and change colour with the music. Both of these features were accomplished by using the map function which included getSmoothedAmplitude() method as shown below.
@@ -172,72 +176,3 @@ public void render(){
 # YouTube Video
 
 [![YouTube](http://img.youtube.com/vi/onMAeF_B1tc/0.jpg)](https://www.youtube.com/watch?v=onMAeF_B1tc)
-
-# Markdown Tutorial
-
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-This is an image using a relative URL:
-
-![An image](images/p8.png)
-
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
-This is a youtube video:
-
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
-
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-
