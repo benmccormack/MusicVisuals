@@ -74,16 +74,25 @@ public void render(){
 ![An image](images/cubeVisual.PNG)
 - Cube and sphere contained inside it both react to the music by changing in size.
 - Cube and sphere will also change colour as the amplitude changes. 
-- Frequency bars on sides of screen change depending on the frequency data.
+- Frequency bars on sides of screen change in size depending on the frequency data.
 ## Waveform Visual
 ![An image](images/waveform.PNG)
+- Waveform drawn to the screen and changes as the values in the audio buffer change.
+- Waveform changes colour as the amplitude changes.
 ## Pyramid Visual
 ![An image](images/pyramidVisual.PNG)
+- Cube inside pyramids reacts to the music by changing in colour and in size.
+- All elements on the screen will change colour by reacting to the value of smoothedAmplitude()
 ## Radial Waveform Visual
 ![An image](images/radialWaveform.PNG)
+- Waveform drawn to the screen and changes as the values in the audio buffer change.
+- Waveform changes colour as the amplitude changes.
+- Circles change colour and give the effect of pulsing to the music by having a value multiplied by the smoothedAmplitude and being added to its predetermined size.
+- Cube rotates and reacts to change in amplitude by changing colour and size.
 ## Frequency Bars Visual
 ![An image](images/freqbars.PNG)
-
+- Frequency bars on sides of screen change in size depending on the frequency data.
+- Ellipse in the middle of the screen gives the effect of pulsing to the music by having a value multiplied by the smoothedAmplitude and being added to its predetermined size.
 # YouTube Video
 
 [![YouTube](http://img.youtube.com/vi/onMAeF_B1tc/0.jpg)](https://www.youtube.com/watch?v=onMAeF_B1tc)
