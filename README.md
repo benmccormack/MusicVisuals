@@ -4,13 +4,6 @@ Name: Ben McCormack
 
 Student Number: C19459424
 
-## Instructions
-- Fork this repository and use it a starter project for your assignment
-- Create a new package named your student number and put all your code in this package.
-- You should start by creating a subclass of ie.tudublin.Visual
-- There is an example visualiser called MyVisual in the example package
-- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
-
 # Description of the assignment
 
 # Instructions
@@ -33,7 +26,7 @@ mv.scale(scaleVar);
 I had to learn a few new things myself throughout this process such as:
  - How to draw a shape from the middle as opposed to the corner as it is drawn by default.
  - How scaling works in processing
- - How to give the effect that shapes were drawn on top of each other when by default you can see the previously drawn shape through the new one.
+ - How to give the effect that shapes were drawn on top of each other when by default you can see the previously drawn shapes stroke through the new one.
 
 I spent quite a few hours trying to figure out how to stop the stroke of a previously drawn shape from showing through the new shape and eventually found the following function in the PApplet class which resolved the issue:
 ```Java
@@ -70,6 +63,7 @@ public void render(){
         angle += 0.05;
     }
 ```
+#Images of Other Visuals
 
 
 # Markdown Tutorial

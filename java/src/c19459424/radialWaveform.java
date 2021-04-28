@@ -22,7 +22,9 @@ public class radialWaveform{
     public void render(){
         bv.colorMode(PApplet.HSB);
         bv.ellipse(width/6, height/5, 100 + bv.getSmoothedAmplitude() * 100, 100 + bv.getSmoothedAmplitude() * 100);
+        bv.ellipse(width/6, height - (height/5), 100 + bv.getSmoothedAmplitude() * 100, 100 + bv.getSmoothedAmplitude() * 100);
         bv.ellipse(width - (width/6), height - (height/5), 100 + bv.getSmoothedAmplitude() * 100, 100 + bv.getSmoothedAmplitude() * 100);
+        bv.ellipse(width - (width/6), height/5, 100 + bv.getSmoothedAmplitude() * 100, 100 + bv.getSmoothedAmplitude() * 100);
         bv.translate(width/2, height/2); //drawing from center of the screen
         bv.fill(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
         bv.stroke(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
