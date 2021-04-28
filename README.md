@@ -74,6 +74,10 @@ public void render(){
 
 ![An image](images/freqbars.PNG)
 
+# YouTube Video
+
+[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=onMAeF_B1tc)
+
 # Markdown Tutorial
 
 This is *emphasis*
