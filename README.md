@@ -64,15 +64,15 @@ public void render(){
     }
 ```
 # Images of Other Visuals
-![An image](images/cubeVisual.png)
+![An image](images/cubeVisual.PNG)
 
-![An image](images/waveform.png)
+![An image](images/waveform.PNG)
 
-![An image](images/pyramidVisual.png)
+![An image](images/pyramidVisual.PNG)
 
-![An image](images/radialWaveform.png)
+![An image](images/radialWaveform.PNG)
 
-![An image](images/freqbars.png)
+![An image](images/freqbars.PNG)
 
 # Markdown Tutorial
 
