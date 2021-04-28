@@ -5,21 +5,58 @@ Name: Ben McCormack
 Student Number: C19459424
 
 # Description of the assignment
-"Something beautiful to enjoy while listening to music." was the brief given for this assignment. I wanted to create an interactive experience that the user could get lost in and enjoy whilst listening to music. Many of these visuals are inspired by the early works of ODEZA, two DJs from America who used many geometric visuals in their early music visuals. The song used in this assignment is created by ODEZA and is called "How did I get here". The visuals react to the music by changing colour and size according to the amplitude and frequency of the audio file. Any other audio file can be simply substituted by cloning this repo, adding the audio file to the data folder and changing the name of the file in the loadAudio() function located in the BensVisual file.
+"Something beautiful to enjoy while listening to music." was the brief given for this assignment. I wanted to create an interactive experience that the user could get lost in and enjoy whilst listening to music. Many of these visuals are inspired by the early works of ODEZA's early music videos. ODEZSA are two DJs from America who used many geometric visuals in their early music visuals. The song used in this assignment is created by ODEZA and is called "How did I get here". The visuals react to the music by changing colour and size according to the amplitude and frequency of the audio file. Any other audio file can be simply substituted by cloning this repo, adding the audio file to the data folder and changing the name of the file in the loadAudio() function located in the BensVisual file.
 
 # Instructions
 - Music is started by pressing the space key
-- Visuals can be controlled using the numbers  1 to 6 on the keyboard.
+- Visuals can be changed using the numbers  1 to 6 on the keyboard.
 - The rotating scaled rectangles (Visual 6) can be scaled by dragging the mouse across the screen.
 
 # How it works
+
+
+
+Key presses are read and stored in the which variable. The switch statement will then execute the case relevant to the key press. The code for the switch statement is attached below.
+```Java
+switch(which)
+        {
+            case 1:
+                wf.render();
+                break;
+
+            case 2:
+                cv.render();
+                break;
+
+            case 3:
+                pv.render();
+                break;
+            
+            case 4:
+                rw.render();
+                break;
+
+            case 5:
+                fb.render();
+                break;
+
+            case 6:
+                rects.render();
+                break;
+
+            default:
+                menu.render();
+                break;
+        }
+```
+
 
 # What I am most proud of in the assignment
 I am most proud of the rotating illusion I created with the rectangles in *rectSize.java*. I discovered something similar to this online and was inspired to do my own take on something similar. I started by noting features that I liked about the visual and then also make note of my own features that I would like to implement. The features I wanted to implemement included making the rectangles pulse with the music and change colour with the music. Both of these features were accomplished by using the map function which included getSmoothedAmplitude() method as shown below.
 
 ```Java
-mv.fill(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
-mv.stroke(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
+bv.fill(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
+bv.stroke(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
 ```
 
 Scaling the visual with the use of the mouse is another thing that I added to the illusion. Although I liked how it looked initially I began to think of ways to make it more interactive. As the mouse is dragged across the screen, the visual is enlarged which gives the effect that you are now inside the flower like illusion when looking at the screen. The scaling of the visual was done as follows.

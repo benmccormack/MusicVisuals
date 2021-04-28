@@ -39,13 +39,6 @@ public class BensVisual extends Visual {
 
     public void keyPressed()
     {
-        /*
-        if (keyCode == ' ')
-        {
-            getAudioPlayer().cue(0);
-            getAudioPlayer().play();
-        }
-        */
 
         if (keyCode >= '0' && keyCode <= '6') {
             which = keyCode - '0';
@@ -81,9 +74,6 @@ public class BensVisual extends Visual {
         
         switch(which)
         {
-            case 0:
-                menu.render();
-                break;
             case 1:
                 wf.render();
                 break;
@@ -106,6 +96,10 @@ public class BensVisual extends Visual {
 
             case 6:
                 rects.render();
+                break;
+
+            default:
+                menu.render();
                 break;
         }
     }
