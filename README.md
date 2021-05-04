@@ -95,7 +95,7 @@ if (keyCode >= '0' && keyCode <= '6') {
 ```
 
 # What I am most proud of in the assignment
-I am most proud of the rotating illusion I created with the rectangles in *rectSize.java*. I discovered something similar to this online and was inspired to do my own take on something similar. I started by noting features that I liked about the visual and then also make note of my own features that I would like to implement. The features I wanted to implemement included making the rectangles pulse with the music and change colour with the music. Both of these features were accomplished by using the map function which included getSmoothedAmplitude() method as shown below.
+I am most proud of the rotating illusion I created with the rectangles in *rectSize.java*. I discovered this visual online ( https://www.youtube.com/watch?v=AUddj9kzyyY ) and was inspired to do my own take on something similar. I started by noting features that I liked about the visual and then also make note of my own features that I would like to implement. The features I wanted to implemement included making the rectangles pulse with the music and change colour with the music. Both of these features were accomplished by using the map function which included getSmoothedAmplitude() method as shown below.
 
 ```Java
 bv.fill(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);

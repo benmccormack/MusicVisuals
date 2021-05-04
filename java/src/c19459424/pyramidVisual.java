@@ -2,43 +2,30 @@ package c19459424;
 
 import processing.core.*;
 
-public class pyramidVisual {
-    BensVisual bv;
+public class pyramidVisual extends waveform{
     float width;
     float height;
-    float[] lerpedBuffer;
 
     public pyramidVisual(BensVisual bv)
     {
-        this.bv = bv; 
-        width = this.bv.width;
-        height = this.bv.height;
-        lerpedBuffer = new float[bv.width];
+        super(bv);
     }
 
     float angle = 0;
   
     float size = 100; //size variable for vertices and box
 
+    @Override
     public void render()
-    {
-        bv.colorMode(PApplet.HSB);
+    {   
         bv.lights();
         bv.noFill();
         bv.strokeWeight(4);
-        bv.stroke(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);
+        bv.stroke(PApplet.map(bv.getSmoothedAmplitude(), 0, 1, 0,255), 255, 255);  
 
-        //generating the waveform
-        for(int i = 0 ; i < bv.getAudioBuffer().size() ; i ++)
-        {
-            lerpedBuffer[i] = PApplet.lerp(lerpedBuffer[i], bv.getAudioBuffer().get(i), 0.1f);
-            bv.line(i, 0 - lerpedBuffer[i] * width/6, i, 0 + lerpedBuffer[i] * width/6 );
-            bv.line(i, height - lerpedBuffer[i] * width/6, i, height + lerpedBuffer[i] * width/6 );
-        } 
-        
-
+        bv.pushMatrix();
         //putting shaped in center of the screen
-        bv.translate(width/2, height/2);
+        bv.translate(bv.width/2f, bv.height/2f);
 
 
         //rotation for the pyramids
@@ -96,6 +83,13 @@ public class pyramidVisual {
         bv.box(size * bv.getSmoothedAmplitude());
 
         angle += 0.01f;
+        bv.popMatrix();
+
+        bv.translate(0, -bv.height / 2f);
+        super.render();
+
+        bv.translate(0, bv.height);
+        super.render();
     }
 
 }

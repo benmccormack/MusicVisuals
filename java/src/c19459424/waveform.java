@@ -26,7 +26,7 @@ public class waveform
         for(int i = 0 ; i < bv.getAudioBuffer().size() ; i ++)
         {
             lerpedBuffer[i] = PApplet.lerp(lerpedBuffer[i], bv.getAudioBuffer().get(i), 0.1f);
-            bv.line(i, halfWidth - lerpedBuffer[i] * halfWidth, i, halfWidth + lerpedBuffer[i] * halfWidth);
+            bv.line(i, halfWidth - lerpedBuffer[i] * halfWidth/2, i, halfWidth + lerpedBuffer[i] * halfWidth/2);
         } 
     }
 }
