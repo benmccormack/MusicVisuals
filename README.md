@@ -23,7 +23,6 @@ public class BensVisual extends Visual {
     cubeVisual cv;
     pyramidVisual pv;
     radialWaveform rw;
-    linesCircle lc;
     menu menu;
 
     ...
@@ -50,7 +49,6 @@ The classes are instanciated in the setup method as follows:
         cv = new cubeVisual(this);
         pv = new pyramidVisual(this);
         rw = new radialWaveform(this);
-        lc = new linesCircle(this);
         menu = new menu(this);
     }
 ```
