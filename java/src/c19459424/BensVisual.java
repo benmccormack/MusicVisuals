@@ -9,7 +9,6 @@ public class BensVisual extends Visual {
     cubeVisual cv;
     pyramidVisual pv;
     radialWaveform rw;
-    linesCircle lc;
     menu menu;
 
     int which = 0;
@@ -33,7 +32,6 @@ public class BensVisual extends Visual {
         cv = new cubeVisual(this);
         pv = new pyramidVisual(this);
         rw = new radialWaveform(this);
-        lc = new linesCircle(this);
         menu = new menu(this);
     }
 
